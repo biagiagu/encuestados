@@ -11,14 +11,14 @@ $('#localStorageForm')
       question: {
         validators: {
           notEmpty: {
-            message: 'La pregunta no puede ser vacía'
+            message: 'La pregunta no puede estar vacía'
           }
         }
       },
       'option[]': {
         validators: {
           notEmpty: {
-            message: 'La respuesta no puede ser vacía'
+            message: 'La respuesta no puede estar vacía'
           },
           stringLength: {
             max: 100,
@@ -28,6 +28,7 @@ $('#localStorageForm')
       }
     }
   })
+  // Manejo del boton agregar respuesta
   .on('click', '.botonAgregarRespuesta', function() {
     var $template = $('#optionTemplate'),
       $clone = $template
@@ -41,7 +42,7 @@ $('#localStorageForm')
     $('#localStorageForm').formValidation('addField', $option);
   })
 
-  // Manejo del boton agregar respuesta
+  // Manejo del boton borrar respuesta
   .on('click', '.botonBorrarRespuesta', function() {
     var $row = $(this).parents('.form-group'),
       $option = $row.find('[name="option[]"]');
